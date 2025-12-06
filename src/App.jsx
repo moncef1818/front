@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login'
 import ClubRegister from './Pages/Club-register/ClubRegister'
-import Leaderboard from './Leaderbord';
+import Leaderboard from './Leadbord';
 import './App.css'
 
 function App() {
