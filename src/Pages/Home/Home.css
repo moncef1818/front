@@ -1,5 +1,4 @@
 /* Base styles */
-
 #backgroundimg {
   width: 100%;
   height: 100%;
@@ -7,8 +6,6 @@
   filter: brightness(0.8);
   z-index: 3;
   position: fixed;
-  z-index: -1;
-
 }
 
 .pop-ups {
@@ -17,36 +14,13 @@
   bottom: 300px;
 }
 
-.btn-leader{
-  position: relative;
-  z-index: 9;     
-  margin-top: 20px;
-  width: 100%;
-  height: 45px;
-  background: #F7D34A;
-  border: none;
-  border-radius: 40px;
-  font-size: 18px;
-  font-family: "AdventureTime";
-  color: white;
-  margin-top: 250px;
-  
-}
-
-.back-btn-wrapper{
-    position: fixed;
-    top: 50%;
-    left: 25%;
-}
-
 #enchrbook {
-  position: fixed;
+  position: relative;
   z-index: 4;
   height: 560px;
   width: 400px;
-  top: 50%; /* منتصف الشاشة عموديًا */
-  left: 50%; /* منتصف الشاشة أفقيًا */
-  transform: translate(-50%, -50%); /* لضبط العنصر تمامًا في المركز */
+  left: 420px;
+  top: 250px;
 }
 
 #mainbimo {
@@ -228,20 +202,17 @@
   height: 100px;
   width: 400px;
   color: aliceblue;
+  font-size: 30px;
   box-shadow: 
     0 15px 35px rgba(0, 0, 0, 0.3),
     0 5px 15px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
     inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#Games h6 {
-   font-size: 12px;
-   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 /* Large Desktop: 1200px+ (default styles above) */
@@ -495,21 +466,21 @@
   #mainciclogo {
     width: 180px;
     height: 80px;
-    top: 45px;
+    top: 25px;
   }
 
   #Games {
     height: 60px;
     width: 250px;
-    top: 140px;
+    top: 110px;
     font-size: 20px;
   }
 
   #enchrbook {
     width: 290px;
     height: 400px;
-    top: 260px;
-    left: 220px;
+    top: 160px;
+    left: 130px;
   }
 
   #mainbimo {
@@ -581,21 +552,20 @@
   #mainciclogo {
     width: 160px;
     height: 70px;
-    top: 60px;
-    margin-bottom: 20px;
+    top: 30px;
   }
-   
 
   #Games {
     height: 55px;
-    width: 250px;
-    top: 155px;
+    width: 230px;
+    top: 105px;
+    font-size: 18px;
   }
 
   #enchrbook {
     width: 270px;
     height: 380px;
-    top: 250px;
+    top: 170px;
   }
 
   #mainbimo {
