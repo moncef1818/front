@@ -65,7 +65,6 @@ const Lichhome = ({token}) => {
   return (
     <div className="app">
       <button id='lichbtn' onClick={handleOpenPopuplich}>
-         lich
       </button>
       <FlagPopuplich
         isOpen={isPopupOpenlich}

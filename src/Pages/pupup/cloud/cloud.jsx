@@ -63,7 +63,6 @@ const Cloud = ({token}) => {
   return (
     <div className="app">
       <button id='cloudbtn' onClick={handleOpenPopupcloud}>
-       cloud
       </button>
       <FlagPopupcloud
         isOpen={isPopupOpencloud}

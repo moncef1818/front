@@ -125,6 +125,28 @@
   width: 45px;
 }
 
+.btn-home{
+  position: relative;
+  z-index: 9;     
+  margin-top: 20px;
+  width: 100%;
+  height: 45px;
+  background: #F7D34A;
+  border: none;
+  border-radius: 40px;
+  font-size: 18px;
+  font-family: "AdventureTime";
+  color: white;
+  margin-top: 50px;
+  
+}
+
+.home-btn-wrapper{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+
 /* ============================= */
 /* ✅ MOBILE RESPONSIVE */
 /* ============================= */

@@ -23,15 +23,14 @@ const Home = () => {
   }, [navigate])
   
   const token = localStorage.getItem('access_token')
-
-  const handleLeader  = () => {
-      navigate("leaderboard")
-  }
   
   return (
-    <div className="background">
+    <div className='home-container'>
+      <div className="background">
       <img src="ciclogo.png" alt="" id='mainciclogo' />
-      <button id='Games' >Choose Your Game</button>
+      <div id='Games' >
+        <h6>Submit your flag, by clicking on the gems</h6>
+      </div>
       <img src="background.jpg" alt="background" id='backgroundimg'/>
       <img src="mainbimo.png" alt="mainbimo" id='mainbimo' />
       <img src="enchrdbook.png" alt="enchrbook" id='enchrbook'/>
@@ -47,10 +46,11 @@ const Home = () => {
       </div>
 
         <div className="back-btn-wrapper">
-          <Link to="/">
+          <Link to="/leaderboard">
             <button className="btn-leader">Leaderboard</button>
           </Link>
         </div>
+    </div>
     </div>
   )
 }

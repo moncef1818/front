@@ -67,7 +67,6 @@ const Jayk = ({token}) => {
   return (
     <div className="app">
       <button id='jaykbtn' onClick={handleOpenPopupjayk}>
-        jayk
       </button>
       <FlagPopupjayk
         isOpen={isPopupOpenjayk}

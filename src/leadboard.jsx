@@ -147,9 +147,9 @@ function Leaderboard() {
             ))}
           </tbody>
         </table>
-        <div className="back-btn-wrapper">
+        <div className="home-btn-wrapper">
           <Link to="/">
-            <button className="btn-back">Back to Home</button>
+            <button className="btn-home">Back to Home</button>
           </Link>
         </div>
       </div>

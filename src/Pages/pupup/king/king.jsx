@@ -66,7 +66,6 @@ const King = ({token}) => {
   return (
     <div className="app">
       <button id='kingbtn' onClick={handleOpenPopupking}>
-      king
       </button>
       <FlagPopupking
         isOpen={isPopupOpenking}

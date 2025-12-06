@@ -44,7 +44,7 @@ function App() {
 
   return (
     <Routes>
-      {/* LOGIN - Show login if no token */}
+      {/*  Show login if no token */}
       <Route path='/login' element={
         !token ? <Login /> : <Navigate to="/" replace />
       } />

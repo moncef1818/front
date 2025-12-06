@@ -23,7 +23,6 @@ const Sandy = () => {
   return (
     <div className="app">
       <button id='sandybtn' onClick={handleOpenPopupsandy}>
-      sandy
       </button  >
       <FlagPopupsandy
         isOpen={isPopupOpensandy}
