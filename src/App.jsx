@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login'
 import ClubRegister from './Pages/Club-register/ClubRegister'
-import Leaderboard from './leadboard';
+import Leaderboard from './Pages/leaderbord/leaderbord';
 import './App.css'
 
 function App() {
@@ -11,7 +11,6 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check game phase once when app loads
     const checkGamePhase = async () => {
       try {
         const response = await fetch('https://cic-opening-day-backend.onrender.com/api/game/phase/');
@@ -32,44 +31,34 @@ function App() {
     return <div className="app-loading">Loading...</div>;
   }
 
-  const { has_ended, game_active } = gamePhase || { has_ended: false, game_active: true };
+  const { has_ended } = gamePhase || { has_ended: false };
   const token = localStorage.getItem('access_token');
-
-  console.log('App Status:', { 
-    has_ended, 
-    game_active, 
-    token: !!token,
-    loading 
-  });
 
   return (
     <Routes>
-      {/*  Show login if no token */}
+      {/* LOGIN - Only show if game not ended */}
       <Route path='/login' element={
-        !token ? <Login /> : <Navigate to="/" replace />
+        !has_ended && !token ? <Login /> : <Navigate to="/club-register" replace />
       } />
 
-      {/* HOME - ONLY if logged in AND game NOT ended */}
+      {/* HOME - Only show if game not ended and logged in */}
       <Route path='/' element={
-        token && !has_ended ? <Home /> : <Navigate to={token ? "/club-register" : "/login"} replace />
+        !has_ended && token ? <Home /> : <Navigate to="/club-register" replace />
       } />
 
-      {/* CLUB REGISTER - Show when game ended */}
-      <Route path='/club-register' element={
-        has_ended ? <ClubRegister /> : <Navigate to="/" replace />
+      {/* LEADERBOARD - Same as home */}
+      <Route path='/leaderboard' element={
+        !has_ended && token ? <Leaderboard /> : <Navigate to="/club-register" replace />
       } />
 
-       <Route path='/leaderboard' element={
-        !has_ended && token ? <Leaderboard /> : <Navigate to="/" replace />
-      } />
+      {/* CLUB REGISTER - Always accessible */}
+      <Route path='/club-register' element={<ClubRegister />} />
 
-      {/* CATCH ALL - Smart redirect */}
+      {/* CATCH ALL - Everyone goes to club-register */}
       <Route path='*' element={
-        <Navigate to={token ? (has_ended ? "/club-register" : "/") : "/login"} replace />
+        <Navigate to="/club-register" replace />
       } />
     </Routes>
-
-     
   );
 }
 
