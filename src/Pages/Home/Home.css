@@ -14,6 +14,28 @@
   bottom: 300px;
 }
 
+.btn-leader{
+  position: relative;
+  z-index: 9;     
+  margin-top: 20px;
+  width: 100%;
+  height: 45px;
+  background: #F7D34A;
+  border: none;
+  border-radius: 40px;
+  font-size: 18px;
+  font-family: "AdventureTime";
+  color: white;
+  margin-top: 250px;
+  
+}
+
+.back-btn-wrapper{
+    position: fixed;
+    top: 50%;
+    left: 25%;
+}
+
 #enchrbook {
   position: relative;
   z-index: 4;
