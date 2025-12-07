@@ -21,8 +21,10 @@ const ClubRegister = () => {
     year: '',
     department_choice_1: '',
     department_choice_2: '',
+    department_choice_3: '',
     why_department_1: '',
-    why_not_department_1_choose_2: ''
+    why_not_department_1_choose_2: '',
+    why_not_department_1_and_2_choose_3: ''
   })
  
   const [loading, setLoading] = useState(false)
@@ -38,8 +40,6 @@ const ClubRegister = () => {
     { value: 'eth', label: 'Ethical Hacking'},
     { value: 'ai', label: 'Artificial Intelligence'},
     { value: 'design', label: 'Design & Social Media' },
-    { value: 'hr', label: 'Human Resources' },
-    { value: 'fpr', label: 'Finance & Public Relations' },
     { value: 'logistics', label: 'Logistics'},
     { value: 'vib', label: 'Vibes' }
   ]
@@ -88,6 +88,18 @@ const ClubRegister = () => {
       setLoading(false)
       return
     }
+
+    if (formData.department_choice_1 === formData.department_choice_3) {
+      setError('Department choices must be different!')
+      setLoading(false)
+      return
+    }
+
+    if (formData.department_choice_2 === formData.department_choice_3) {
+      setError('Department choices must be different!')
+      setLoading(false)
+      return
+    }
     
     try {
       
@@ -114,8 +126,10 @@ const ClubRegister = () => {
           year: '',
           department_choice_1: '',
           department_choice_2: '',
+          department_choice_3: '',
           why_department_1: '',
-          why_not_department_1_choose_2: ''
+          why_not_department_1_choose_2: '',
+          why_not_department_1_and_2_choose_3: ''
         })
 
         setTimeout(() => {
@@ -282,106 +296,121 @@ const ClubRegister = () => {
               </div>
             </div>
             
-            {/* Department Section */}
-            <div className="form-section" id='departement-section'>
-              <h3><FaGraduationCap /> Department Preferences</h3>
+{/* Department Section */}
+<div className="form-section" id='departement-section'>
+  <h3><FaGraduationCap /> Department Preferences</h3>
 
-              <div>
-                <div className="form-group">
-                  <label htmlFor="department_choice_1">First Choice :</label>
-                  <select
-                    id="department_choice_1"
-                    name="department_choice_1"
-                    value={formData.department_choice_1}
-                    onChange={handleChange}
-                    required
-                  >
-                    <option value="" className='placeholder-option'>Select first choice</option>
-                    {departmentChoices.map(dept => (
-                      <option key={dept.value} value={dept.value} className='option'>
-                      {dept.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              
-                <div className="form-group">
-                  <label htmlFor="why_department_1">Why this department ? </label>
-                  <textarea
-                    id="why_department_1"
-                    name="why_department_1"
-                    value={formData.why_department_1}
-                    onChange={handleChange}
-                    required
-                    placeholder="Explain why you're interested in this department..."
-                  />
-                </div>
-              </div>
-              
-              
-              <div>
-                <div className="form-group">
-                   <label htmlFor="department_choice_2">Second Choice :</label>
-                   <select
-                     id="department_choice_2"
-                     name="department_choice_2"
-                     value={formData.department_choice_2}
-                     onChange={handleChange}
-                     required
-                     >
-                     <option value="">Select second choice</option>
-                     {departmentChoices
-                       .filter(dept => dept.value !== formData.department_choice_1)
-                       .map(dept => (
-                         <option key={dept.value} value={dept.value}>
-                           {dept.label}
-                         </option>
-                        ))
-                     }
-                    </select>
-                </div>
-              
-                <div className="form-group">
-                  <label htmlFor="why_not_department_1_choose_2">
-                    If not accepted to first choice, why this second choice ?
-                  </label>
-                  <textarea
-                    id="why_not_department_1_choose_2"
-                    name="why_not_department_1_choose_2"
-                    value={formData.why_not_department_1_choose_2}
-                    onChange={handleChange}
-                    placeholder="Explain your interest in the second choice..."
-                  />
-                </div>
-              </div>
-              
-            </div>
-            
-           
-            <div className="submit-section">
-              <button 
-                type="submit" 
-                className="submit-btn"
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <span className="spinner"></span>
-                    Submitting...
-                  </>
-                ) : (
-                  <>
-                    <FaPaperPlane /> Submit 
-                  </>
-                )}
-              </button>
-            </div>
-            
-          </form>
-        )}
-        
-      </div>
+  {/* First Choice */}
+  <div>
+    <div className="form-group">
+      <label htmlFor="department_choice_1">First Choice :</label>
+      <select
+        id="department_choice_1"
+        name="department_choice_1"
+        value={formData.department_choice_1}
+        onChange={handleChange}
+        required
+      >
+        <option value="" className='placeholder-option'>Select first choice</option>
+        {departmentChoices.map(dept => (
+          <option key={dept.value} value={dept.value} className='option'>
+            {dept.label}
+          </option>
+        ))}
+      </select>
     </div>
+  
+    <div className="form-group">
+      <label htmlFor="why_department_1">Why this department ? </label>
+      <textarea
+        id="why_department_1"
+        name="why_department_1"
+        value={formData.why_department_1}
+        onChange={handleChange}
+        required
+        placeholder="Explain why you're interested in this department..."
+      />
+    </div>
+  </div>
+  
+  {/* Second Choice */}
+  <div>
+    <div className="form-group">
+      <label htmlFor="department_choice_2">Second Choice :</label>
+      <select
+        id="department_choice_2"
+        name="department_choice_2"
+        value={formData.department_choice_2}
+        onChange={handleChange}
+        required
+      >
+        <option value="">Select second choice</option>
+        {departmentChoices
+          .filter(dept => dept.value !== formData.department_choice_1)
+          .map(dept => (
+            <option key={dept.value} value={dept.value}>
+              {dept.label}
+            </option>
+          ))
+        }
+      </select>
+    </div>
+  
+    <div className="form-group">
+      <label htmlFor="why_not_department_1_choose_2">
+        If not accepted to first choice, why this second choice ?
+      </label>
+      <textarea
+        id="why_not_department_1_choose_2"
+        name="why_not_department_1_choose_2"
+        value={formData.why_not_department_1_choose_2}
+        onChange={handleChange}
+        placeholder="Explain your interest in the second choice..."
+      />
+    </div>
+  </div>
+
+  {/* Third Choice (Optional) */}
+  <div>
+    <div className="form-group">
+      <label htmlFor="department_choice_3">Third Choice (Optional) :</label>
+      <select
+        id="department_choice_3"
+        name="department_choice_3"
+        value={formData.department_choice_3}
+        onChange={handleChange}
+      >
+        <option value="">Select third choice (optional)</option>
+        {departmentChoices
+          .filter(dept => 
+            dept.value !== formData.department_choice_1 && 
+            dept.value !== formData.department_choice_2
+          )
+          .map(dept => (
+            <option key={dept.value} value={dept.value}>
+              {dept.label}
+            </option>
+          ))
+        }
+      </select>
+    </div>
+  
+    <div className="form-group">
+      <label htmlFor="why_not_department_1_and_2_choose_3">
+        If not accepted to first and second choices, why this third choice ?
+      </label>
+      <textarea
+        id="why_not_department_1_and_2_choose_3"
+        name="why_not_department_1_and_2_choose_3"
+        value={formData.why_not_department_1_and_2_choose_3}
+        onChange={handleChange}
+        placeholder="Explain your interest in the third choice..."
+      />
+    </div>
+  </div>
+  
+</div>
+
   )
 }
 
