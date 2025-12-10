@@ -1,4 +1,10 @@
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './ClubRegister.css';
+import { 
+  FaUser, FaSchool, FaGraduationCap, FaPaperPlane 
+} from 'react-icons/fa';
 
 const ClubRegister = () => {
   const navigate = useNavigate()
